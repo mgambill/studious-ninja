@@ -27,10 +27,6 @@ export function MultiView({ children }) {
     setTimeout(() => {
       setViews(a => [...a, ..._views])
     }, 5)
-
-    return function cleanup() {
-      _views = []
-    }
   }, [])
 
   const hasBack = currentIndex > 0
