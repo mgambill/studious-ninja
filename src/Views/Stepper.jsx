@@ -13,16 +13,16 @@ export default (props) => {
     <MultiView>
       {({ views, total, currentIndex, setCurrentIndex, hasBack, hasNext, isLast, goForward, goBack }) => (
         <>
-          <h1 className="text-4xl font-bold">Stepper</h1>
+          <h1 className="mb-8 text-4xl font-bold">Stepper</h1>
           <div className="flex gap-x-10">
-            <div className="flex-1 border border-gray-300 p-6 bg-gray-50 space-y-10">
+            <div className="flex-1 p-6 space-y-10 border border-gray-300 bg-gray-50">
               <h1 className="text-2xl font-bold">View {currentIndex + 1} / 4</h1>
 
 
-              <div className="gap-x-10 flex w-full">
+              <div className="flex w-full gap-x-10">
                 <View viewKey="a" title="View A" test="hello" >
                   {(context) => (
-                    <div className='w-64 h-64 bg-green-500 text-green-200 flex flex-col justify-center items-center font-medium'>
+                    <div className='flex flex-col items-center justify-center w-64 h-64 font-medium text-green-200 bg-green-500'>
                       <p className="text-xl">{context.title}</p>
                       <DevPanel isDev={isDev} code={context} />
                     </div>
@@ -30,7 +30,7 @@ export default (props) => {
                 </View>
                 <View viewKey="b" title="View B" test="hello" >
                   {(context) => (
-                    <div className='w-64 h-64 bg-blue-500 text-blue-200 flex flex-col justify-center items-center font-medium'>
+                    <div className='flex flex-col items-center justify-center w-64 h-64 font-medium text-blue-200 bg-blue-500'>
                       <p className="text-xl">{context.title}</p>
                       <DevPanel isDev={isDev} code={context} />
                     </div>
@@ -38,7 +38,7 @@ export default (props) => {
                 </View>
                 <View viewKey="c" title="View C" test="hello" >
                   {(context) => (
-                    <div className='w-64 h-64 bg-purple-500 text-purple-200 flex flex-col justify-center items-center font-medium'>
+                    <div className='flex flex-col items-center justify-center w-64 h-64 font-medium text-purple-200 bg-purple-500'>
                       <p className="text-xl">{context.title}</p>
                       <DevPanel isDev={isDev} code={context} />
                     </div>
@@ -46,29 +46,29 @@ export default (props) => {
                 </View>
                 <View viewKey="d" title="View D" >
                   {(context) => (
-                    <div className='w-64 h-64 bg-purple-500 text-purple-200 flex flex-col justify-center items-center font-medium'>
+                    <div className='flex flex-col items-center justify-center w-64 h-64 font-medium text-purple-200 bg-purple-500'>
                       <p className="text-xl">{context.title}</p>
                       <DevPanel isDev={isDev} code={context} />
                     </div>
                   )}
                 </View>
               </div>
-              <div className="space-x-4 flex">
-                <button className="hover:bg-gray-600 hover:text-gray-50 px-4 py-2 rounded bg-white border border-gray-300" onClick={goBack}>Prev</button>
-                {!isLast && <button className="hover:bg-gray-600 hover:text-gray-50 px-4 py-2 rounded bg-white border border-gray-300" onClick={goForward}>Next</button>}
-                {isLast && <button className="hover:bg-green-700 px-4 py-2 rounded bg-green-600 text-green-50 border border-gray-300">Submit</button>}
+              <div className="flex space-x-4">
+                <button className="px-4 py-2 bg-white border border-gray-300 rounded hover:bg-gray-600 hover:text-gray-50" onClick={goBack}>Prev</button>
+                {!isLast && <button className="px-4 py-2 bg-white border border-gray-300 rounded hover:bg-gray-600 hover:text-gray-50" onClick={goForward}>Next</button>}
+                {isLast && <button className="px-4 py-2 bg-green-600 border border-gray-300 rounded hover:bg-green-700 text-green-50">Submit</button>}
               </div>
               <div>
-                <p className="font-medium pb-2">Go Directly</p>
+                <p className="pb-2 font-medium">Go Directly</p>
                 <div className="space-x-6">
                   {views.map((view, i) =>
-                    <button className="h-10 w-10 border border-gray-300 hover:bg-green-600 hover:text-green-50 font-medium" onClick={() => setCurrentIndex(i)} key={view.viewKey}>{i}</button>
+                    <button className="w-10 h-10 font-medium border border-gray-300 hover:bg-green-600 hover:text-green-50" onClick={() => setCurrentIndex(i)} key={view.viewKey}>{i}</button>
                   )}
                 </div>
               </div>
               <DevPanel code={({ total, currentIndex, setCurrentIndex, hasBack, hasNext, isLast, goForward, goBack })} />
             </div>
-            <div className="w-72 border border-gray-300 p-6 bg-gray-50 divide-y-2">
+            <div className="p-6 border border-gray-300 divide-y-2 w-72 bg-gray-50">
               {views.map(view =>
                 <div className="py-4">
                   <p className={`${view.isActive(currentIndex) ? 'font-medium text-blue-700' : ''}`}> {view.title} </p>
@@ -81,7 +81,7 @@ export default (props) => {
 
           </div>
 
-          <button onClick={() => setIsDev(x => !x)} className="hover:bg-gray-600 hover:text-gray-50 mt-2 px-4 py-2 rounded bg-white border border-gray-300">Toggle Dev</button>
+          <button onClick={() => setIsDev(x => !x)} className="px-4 py-2 mt-2 bg-white border border-gray-300 rounded hover:bg-gray-600 hover:text-gray-50">Toggle Dev</button>
         </>
       )}
     </MultiView>

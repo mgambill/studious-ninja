@@ -54,7 +54,7 @@ export default (props) => {
                 </View>
                 <View viewKey="d" title="View D" >
                   {(context) => (
-                    <div className='flex flex-col items-center justify-center w-64 h-64 font-medium text-purple-200 bg-purple-500'>
+                    <div className='flex flex-col items-center justify-center w-64 h-64 font-medium text-red-200 bg-red-500'>
                       <p className="text-xl">{context.title}</p>
                       <DevPanel isDev={isDev} code={context} />
                     </div>

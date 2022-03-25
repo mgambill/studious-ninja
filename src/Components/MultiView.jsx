@@ -8,7 +8,7 @@ export const MultiViewContext = createContext({
 })
 
 export function MultiView({ activeIndex, children }) {
-  const [currentIndex, setCurrentIndex] = useState(activeIndex ?? 0)
+  const [currentIndex, setCurrentIndex] = useState(isNaN(activeIndex) ? 0 : activeIndex)
   const [views, setViews] = useState([])
   const _views = []
   const context = {
@@ -31,6 +31,7 @@ export function MultiView({ activeIndex, children }) {
 
 
   useEffect(() => {
+    if (isNaN(activeIndex)) return
     setCurrentIndex(activeIndex)
     console.log(views, currentIndex)
   }, [activeIndex])
