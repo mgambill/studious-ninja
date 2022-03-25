@@ -16,7 +16,7 @@ export default (props) => {
           <h1 className="text-4xl font-bold">Stepper</h1>
           <div className="flex gap-x-10">
             <div className="flex-1 border border-gray-300 p-6 bg-gray-50 space-y-10">
-              <h1 className="text-2xl font-bold">View {currentIndex + 1} / {total}</h1>
+              <h1 className="text-2xl font-bold">View {currentIndex + 1} / 4</h1>
 
 
               <div className="gap-x-10 flex w-full">
